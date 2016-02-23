@@ -20,9 +20,23 @@ public class DoctorTest {
 
   @Test
   public void equals_returnsTrueIfNamesAretheSame() {
-    Doctor firstDoctor = new Doctor("Household chores");
-    Doctor secondDoctor = new Doctor("Household chores");
+    Doctor firstDoctor = new Doctor("Frankenstein");
+    Doctor secondDoctor = new Doctor("Frankenstein");
     assertTrue(firstDoctor.equals(secondDoctor));
   }
 
+  @Test
+  public void save_savesIntoDatabase_true(){
+    Doctor newDoctor = new Doctor("Frankenstein");
+    newDoctor.save();
+    assertTrue(Doctor.all().get(0).equals(newDoctor));
+  }
+
+  @Test
+  public void find_findDoctorInDatabase_true() {
+    Doctor newDoctor = new Doctor("Frankenstein");
+    newDoctor.save();
+    Doctor savedDoctor = Doctor.find(newDoctor.getId());
+    assertTrue(newDoctor.equals(savedDoctor));
+  }
 }
