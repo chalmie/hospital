@@ -36,17 +36,30 @@ import org.sql2o.*;
 
   public void save(){
     try(Connection con = DB.sql2o.open()){
-      String sql = "INSERT INTO doctors(name) VALUES (:name)";
+      String sql = "INSERT INTO doctors (name) VALUES (:name)";
       this.id = (int) con.createQuery(sql, true)
-      .addParameter("name", this.name).executeUpdate().getKey();
+      .addParameter("name", this.name)
+      .executeUpdate()
+      .getKey();
     }
   }
 
   public static Doctor find(int id) {
     try(Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM doctors WHERE id=:id";
-      Doctor doctor = con.createQuery(sql).addParameter("id", id).executeAndFetchFirst(Doctor.class);
+      Doctor doctor = con.createQuery(sql)
+      .addParameter("id", id)
+      .executeAndFetchFirst(Doctor.class);
       return doctor;
+    }
+  }
+
+  public List<Patient> getPatients(){
+    try(Connection con = DB.sql2o.open()){
+      String sql = "SELECT * FROM patients WHERE doctor_id=:id";
+      return con.createQuery(sql)
+      .addParameter("id", this.id)
+      .executeAndFetch(Patient.class);
     }
   }
 

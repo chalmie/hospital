@@ -1,0 +1,17 @@
+<h1>Add a doctor</h1>
+<br>
+<form action="/doctors" method="post">
+  <label for="doctorname">Name:</label><br>
+  <input type="text" name="doctorname"><br>
+  <label for="specialty">Specialty:</label><br>
+  <select name="specialty" id="specialty">
+    <option>Anesthesiology</option>
+    <option>Orthopaedics</option>
+    <option>Dermatology</option>
+    <option>Ophthalmology</option>
+  </select><br><br>
+  <button type="submit" class="btn btn-success" name="button">Submit</button>
+</form>
+<a href="/doctors">View all doctors</a><br>
+<a href="/patients">View all patients</a><br>
+<a href="/">Home</a>

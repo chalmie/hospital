@@ -39,4 +39,10 @@ public class DoctorTest {
     Doctor savedDoctor = Doctor.find(newDoctor.getId());
     assertTrue(newDoctor.equals(savedDoctor));
   }
+
+  // @Test
+  // public void getPatients_retrievesAllPatientsFromDatabase_PatientList(){
+  //   Doctor newDoctor = new Doctor("Frankenstein");
+  //   newDoctor.save();
+  // }
 }

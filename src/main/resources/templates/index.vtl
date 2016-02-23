@@ -1,0 +1,22 @@
+<h1>Doctors</h1>
+
+
+
+<h1>Admin</h1>
+<a href="/doctors/new">Add a doctor</a><br>
+<a href="/doctors">View all doctors</a>
+
+<br><br>
+<p>
+  Search for doctor by specialty
+</p>
+<form action="/specialties" method="get">
+  <select name="specialty" id="specialty">
+    <option>Anesthesiology</option>
+    <option>Orthopaedics</option>
+    <option>Dermatology</option>
+    <option>Ophthalmology</option>
+  </select>
+  <br><br>
+  <button type="submit" class="btn btn-success" name="button">Search</button>
+</form>

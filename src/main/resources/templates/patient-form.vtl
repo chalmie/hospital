@@ -1,0 +1,14 @@
+<h1>Add a patient</h1>
+<br>$doctor.getId()
+<form action="/doctors/new" method="post">
+  <input type="hidden" name="doctor_id" value="$doctor.getId()" id="doctor_id">
+  <label for="patientname">Name:</label><br>
+  <input type="text" name="patientname"><br>
+  <label for="birthday">Birthday:</label><br>
+  <input type="text" name="birthday"><br>
+
+  <button type="submit" class="btn btn-success" name="button">Submit</button>
+</form>
+<a href="/doctors">View all doctors</a><br>
+<a href="/patients">View all patients</a><br>
+<a href="/">Home</a>
